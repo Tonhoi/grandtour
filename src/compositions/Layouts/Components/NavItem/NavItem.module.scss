@@ -1,0 +1,141 @@
+// defined variables
+$white-color: #fff;
+$black-color: #000;
+$red-color: #ff4a52;
+$box-shadow: 0 5px 40px rgba(0, 0, 0, 0.18);
+
+// using extends of sass
+.size-sub-menu {
+  width: 100%;
+  min-width: 240px;
+  max-width: 240px;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+// styles
+
+.header-nav {
+  &-list {
+    display: flex;
+    align-items: center;
+  }
+  &-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 23px 17px 0;
+
+    border-radius: 6px;
+    cursor: pointer;
+
+    & .arrow-icon {
+      transform: rotate(90deg);
+      margin-left: 6px;
+    }
+  }
+
+  &-ul {
+    background-color: $white-color;
+    box-shadow: $box-shadow;
+  }
+}
+
+.sub-menu {
+  &-link {
+    color: $black-color;
+  }
+
+  &-ul {
+    position: absolute;
+    list-style: none;
+    top: 0;
+    left: 100%;
+  }
+
+  &-li,
+  &-div {
+    @extend .size-sub-menu;
+
+    position: relative;
+    padding: 8px 20px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: calc(100% - 40px);
+      height: 1px;
+
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+
+    &:hover,
+    & a:hover {
+      color: $red-color;
+      cursor: pointer;
+      transition: all 0.2s linear;
+    }
+  }
+
+  &-li {
+    & a {
+      & span {
+        font-weight: bold;
+        font-size: 13px;
+      }
+    }
+  }
+
+  &-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $black-color;
+
+    height: 100%;
+  }
+}
+
+.grand-child-link {
+  @extend .size-sub-menu;
+
+  position: relative;
+  padding: 9px 0;
+  background-color: $white-color;
+  box-shadow: $box-shadow;
+
+  & a {
+    display: block;
+    color: $black-color;
+    margin: 0 20px;
+
+    &:hover {
+      color: $red-color;
+      cursor: pointer;
+      transition: all 0.2s linear;
+    }
+  }
+}
+
+.header-nav-ul {
+  position: absolute;
+  top: 100%;
+  list-style: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-color: transparent;
+  }
+}
