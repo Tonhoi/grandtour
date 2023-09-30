@@ -11,11 +11,6 @@ $box-shadow: 0 5px 40px rgba(0, 0, 0, 0.18);
   max-width: 240px;
 }
 
-.nav-title {
-  font-size: 13px;
-  font-weight: 700;
-}
-
 // styles
 
 .nav {
@@ -41,6 +36,11 @@ $box-shadow: 0 5px 40px rgba(0, 0, 0, 0.18);
   &-ul {
     background-color: $white-color;
     box-shadow: $box-shadow;
+  }
+  
+  &-title {
+    font-size: 13px;
+    font-weight: 700;
   }
 }
 
