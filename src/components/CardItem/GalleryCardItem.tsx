@@ -1,14 +1,14 @@
 import { Box, BoxProps, Typography, styled } from "@mui/material";
-import CardTourPrice from "./CardTourPrice";
-import CardStar from "./CardStar";
 import { useRouter } from "next/router";
+
+import { TourPriceCard, StarCard } from "@/components";
 
 interface GalleryCardItemProps extends BoxProps {
   backgroundImage: string;
   href: string;
   title: string;
   price: string;
-  reducedPrice?: string;
+  reduced_price?: string;
 }
 
 const GalleryCardItem = (props: GalleryCardItemProps) => {
@@ -17,7 +17,7 @@ const GalleryCardItem = (props: GalleryCardItemProps) => {
     href,
     title,
     price,
-    reducedPrice = "",
+    reduced_price = "",
     ...restProps
   } = props;
   const router = useRouter();
@@ -29,21 +29,21 @@ const GalleryCardItem = (props: GalleryCardItemProps) => {
   return (
     <Container
       backgroundImage={backgroundImage}
-      {...restProps}
       onClick={handleClick}
+      {...restProps}
     >
-      <Box className={"card_info_wrapper"}>
-        <CardTourPrice
+      <Box className={"card-content"}>
+        <TourPriceCard
           price={price}
-          reducedPrice={reducedPrice}
-          className="price"
+          reduced_price={reduced_price}
+          className="card-price"
         />
 
-        <Typography variant="h5" className={"title"}>
+        <Typography variant="h5" className={"card-title"}>
           {title}
         </Typography>
 
-        <CardStar />
+        <StarCard count={5} count_active={4} />
       </Box>
     </Container>
   );
@@ -54,29 +54,33 @@ const Container = styled(Box, {
 })<{ backgroundImage: string }>(({ backgroundImage, theme }) => {
   return {
     position: "relative",
+    borderRadius: 5,
+
     aspectRatio: "263 /200",
     backgroundImage: `url(${backgroundImage})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    borderRadius: 5,
     backgroundPosition: "center center",
+
     cursor: "pointer",
 
-    ["& .card_info_wrapper"]: {
-      position: "absolute",
-      bottom: 0,
-      left: 0,
-      width: "100%",
+    ["& .card"]: {
+      ["&-content"]: {
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        width: "100%",
 
-      padding: "5px 15px 15px 15px",
+        padding: "5px 15px 15px 15px",
+      },
 
-      ["& .price"]: {
+      ["&-price"]: {
         position: "relative",
         right: 15,
         marginBottom: 12,
       },
 
-      ["& .title"]: {
+      ["&-title"]: {
         fontSize: "19px",
         fontWeight: "bold",
         color: theme.palette.common.white,

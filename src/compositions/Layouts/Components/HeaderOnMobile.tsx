@@ -1,13 +1,8 @@
-import { Box, Stack, styled } from "@mui/material";
+import { Box, Stack, Typography, styled } from "@mui/material";
 
-import { NAVMOBILEDATA } from "@/constant";
+import { NAVMOBILEDATA, SOCIALMOBILEITEMS } from "@/constant";
 import {
   // icon
-  FacebookIcon,
-  TwitterIcon,
-  PinterestIcon,
-  InstagramIcon,
-  YoutubeIcon,
   GalleryCardItem,
   CloseIcon,
 
@@ -35,31 +30,30 @@ const HeaderOnMobile = ({
         onClick={handleCloseMenu}
       />
 
-      <Box
-        component={"nav"}
-        className={`nav-mobile-wrapper ${isOpenMenu ? "active" : ""}`}
-      >
+      <Box component={"nav"} className={`nav ${isOpenMenu ? "active" : ""}`}>
         <Box className={"close-icon-wrapper"} onClick={handleCloseMenu}>
           <CloseIcon className="close-icon" />
         </Box>
 
-        <Spacing spacing={3} />
-
         {/* list */}
-        <Box component={"ul"} className="nav-mobile-list">
+        <Box component={"ul"} className="nav-list">
           {NAVMOBILEDATA.map((el, idx) => (
-            <Box component={"li"} className="nav-mobile-item" key={idx}>
-              <Link href={"/"} component={"a"} className="nav-mobile-link">
-                {el.name}
+            <Box component={"li"} className="nav-item" key={idx}>
+              <Link
+                underline="none"
+                href={"/"}
+                component={"a"}
+                className="nav-link"
+              >
+                <Typography variant="caption" className="nav-title">
+                  {el.name}
+                </Typography>
               </Link>
             </Box>
           ))}
         </Box>
 
-        <Spacing spacing={10} />
-
-        {/* galeery card */}
-
+        {/* gallery card */}
         {/* using map method here */}
         <GalleryCardItem
           backgroundImage={
@@ -79,33 +73,17 @@ const HeaderOnMobile = ({
           href={"/"}
           title="Swiss Alps Trip"
           price="$4.900"
-          reducedPrice="$4.200"
+          reduced_price="$4.200"
         />
 
         {/* social */}
 
-        <Stack className={"social-wrapper"}>
-          {/* using map method here */}
-
-          <Link href={"/"} className={"icon-wrapper"}>
-            <FacebookIcon cursor={"pointer"} />
-          </Link>
-
-          <Link href={"/"} className={"icon-wrapper"}>
-            <TwitterIcon cursor={"pointer"} />
-          </Link>
-
-          <Link href={"/"} className={"icon-wrapper"}>
-            <PinterestIcon cursor={"pointer"} />
-          </Link>
-
-          <Link href={"/"} className={"icon-wrapper"}>
-            <InstagramIcon cursor={"pointer"} />
-          </Link>
-
-          <Link href={"/"} className={"icon-wrapper"}>
-            <YoutubeIcon cursor={"pointer"} />
-          </Link>
+        <Stack className={"nav-social"}>
+          {SOCIALMOBILEITEMS.map((el, idx) => (
+            <Link href={"/"} className={"nav-social-icon"} key={idx}>
+              <el.icon cursor={"pointer"} />
+            </Link>
+          ))}
         </Stack>
       </Box>
     </Container>
@@ -119,14 +97,16 @@ const Container = styled(Box)(({ theme }) => {
       filter: "blur(20px)",
     },
 
-    ["& .nav-mobile-wrapper"]: {
+    ["& .nav"]: {
       position: "fixed",
       right: 0,
       top: 0,
       bottom: 0,
       zIndex: 999,
+
       width: 360,
       padding: "35px 40px",
+
       backgroundColor: "#FFFFFFD9",
       transform: "translateX(100%)",
       transition: "all linear 0.1s",
@@ -143,18 +123,18 @@ const Container = styled(Box)(({ theme }) => {
       ["& .close-icon-wrapper"]: {
         position: "relative",
         top: 0,
-        transition: "all linear 0.1s",
-
-        width: 44,
-        height: 44,
-        borderRadius: "50%",
-        backgroundColor: "#FF4A52",
 
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        width: 44,
+        height: 44,
 
-        marginLeft: "auto",
+        margin: "0 0 24px auto",
+        borderRadius: "50%",
+        backgroundColor: "#FF4A52",
+
+        transition: "all linear 0.1s",
         cursor: "pointer",
 
         ["&:hover"]: {
@@ -169,35 +149,33 @@ const Container = styled(Box)(({ theme }) => {
       },
 
       //   nav-list
-      ["& .nav-mobile-list"]: {
+      ["&-list"]: {
         listStyle: "none",
+        marginBottom: theme.spacing(10),
+      },
 
-        ["& .nav-mobile-item"]: {
-          padding: "7px 0",
+      ["&-title"]: {
+        display: "block",
+        padding: "4px 0",
+        fontSize: 24,
+        fontWeight: 800,
 
-          ["& .nav-mobile-link"]: {
-            display: "block",
-            textDecoration: "none",
-            color: theme.palette.common.black,
-            fontWeight: "bold",
-            fontSize: "24px",
-            transition: "color .2s linear,background .1s linear",
+        color: theme.palette.common.black,
+        transition: "color .2s linear,background .1s linear",
 
-            ["&:hover"]: {
-              color: "#FF4A52",
-            },
-          },
+        ["&:hover"]: {
+          color: "#FF4A52",
         },
       },
 
       // social
-      ["& .social-wrapper"]: {
-        marginTop: theme.spacing(5),
+      ["&-social"]: {
         flexDirection: "row",
         alignItems: "center",
+        marginTop: theme.spacing(5),
         gap: 15,
 
-        ["& .icon-wrapper"]: {
+        ["&-icon"]: {
           color: theme.palette.common.black,
           transition: "all linear .2s",
 

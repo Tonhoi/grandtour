@@ -1,6 +1,13 @@
-import ClockIcon from "./components/Icons/ClockIcon";
-import LocationIcon from "./components/Icons/LocationIcon";
-import PhoneIcon from "./components/Icons/PhoneIcon";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  PinterestIcon,
+  TwitterIcon,
+  YoutubeIcon,
+  ClockIcon,
+  LocationIcon,
+  PhoneIcon,
+} from "@/components";
 
 export const NAVDATA = [
   {
@@ -596,7 +603,7 @@ export const BEST_VALUE_TRIPS_ITEMS = [
     time: "5 days",
     price: "$3,000",
     reduce_price: "$2,500",
-    isSale: true,
+    is_sale: true,
   },
 ];
 
@@ -642,5 +649,185 @@ export const POST_ITEMS = [
     time: "December 10, 2016",
     description:
       "Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache...",
+  },
+];
+
+export const CITYOPTIOS = [
+  { value: "french_autumn", label: "French Autumn" },
+  { value: "grand_switzerland", label: "Grand Switzerland" },
+  { value: "discover_japan", label: "Discover Japan" },
+  { value: "niko_trip", label: "Niko Trip" },
+  { value: "seoul_your_soul", label: "Seoul Your Soul" },
+  { value: "hong_kong", label: "Hong Kong" },
+  { value: "great_britain_travel", label: "Great Britain Travel" },
+  { value: "exclusive_prague_trip", label: "Exclisive Prague Trip" },
+  { value: "the_new_california", label: "The New California" },
+  { value: "5_lake_of_fuji_san", label: "5 Lake Of Fuji San" },
+];
+
+export const MONTHOPTIONS = [
+  {
+    value: "january",
+    label: "January",
+  },
+  {
+    value: "februaty",
+    label: "Februaty",
+  },
+  {
+    value: "march",
+    label: "March",
+  },
+  {
+    value: "april",
+    label: "April",
+  },
+  {
+    value: "may",
+    label: "May",
+  },
+  {
+    value: "june",
+    label: "June",
+  },
+  {
+    value: "july",
+    label: "July",
+  },
+  {
+    value: "august",
+    label: "August",
+  },
+  {
+    value: "september",
+    label: "September",
+  },
+  {
+    value: "october",
+    label: "October",
+  },
+  {
+    value: "november",
+    label: "November",
+  },
+  {
+    value: "december",
+    label: "December",
+  },
+];
+
+export const DATEOPTIONS = [
+  {
+    value: "low_to_hight",
+    label: "Price Low To Hight",
+  },
+  {
+    value: "hight_to_low",
+    label: "Price Hight To Low",
+  },
+  {
+    value: "name",
+    label: "Sort By Name",
+  },
+  {
+    value: "popularity",
+    label: "Sort By Popularity",
+  },
+  {
+    value: "review_score",
+    label: "Sort By Review Score",
+  },
+];
+
+export const CATEGORYOPTIONS = [
+  {
+    value: "mountain",
+    label: "Mountain",
+  },
+  {
+    value: "rural",
+    label: "Rural",
+  },
+  {
+    value: "snow_ice",
+    label: "Snow & Ice",
+  },
+  {
+    value: "wildlife",
+    label: "Wildlife",
+  },
+];
+
+export const DESTINATIONOPTIONS = [
+  {
+    value: "tokyo",
+    label: "Tokyo",
+  },
+  {
+    value: "seoul",
+    label: "Seoul",
+  },
+  {
+    value: "paris",
+    label: "Paris",
+  },
+  {
+    value: "london",
+    label: "London",
+  },
+  {
+    value: "venice",
+    label: "Venice",
+  },
+  {
+    value: "miami",
+    label: "Miami",
+  },
+  {
+    value: "rome",
+    label: "Rome",
+  },
+  {
+    value: "prague",
+    label: "Prague",
+  },
+  {
+    value: "california",
+    label: "California",
+  },
+  {
+    value: "kyoto",
+    label: "Kyoto",
+  },
+  {
+    value: "hong_kong",
+    label: "Hong Kong",
+  },
+  {
+    value: "santorini",
+    label: "Santorini",
+  },
+];
+
+export const SOCIALMOBILEITEMS = [
+  {
+    href: "/",
+    icon: FacebookIcon,
+  },
+  {
+    href: "/",
+    icon: TwitterIcon,
+  },
+  {
+    href: "/",
+    icon: PinterestIcon,
+  },
+  {
+    href: "/",
+    icon: InstagramIcon,
+  },
+  {
+    href: "",
+    icon: YoutubeIcon,
   },
 ];

@@ -1,6 +1,7 @@
+import { Box, BoxProps, styled } from "@mui/material";
+
 import { Image } from "@/components";
 import HeadLine from "@/components/HeadLine";
-import { Box, BoxProps, styled } from "@mui/material";
 
 interface FooterIntroduceProps extends BoxProps {}
 

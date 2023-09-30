@@ -1,17 +1,19 @@
-import { Box, BoxProps, Typography, styled } from "@mui/material";
 import { CSSProperties } from "react";
-import CardItemBase from "./CardItemBase";
+import { Box, BoxProps, Typography, styled } from "@mui/material";
 
-interface CardItembasicProps extends BoxProps {
+import { CardItemBase } from "@/components";
+
+interface CardItemBasicProps extends BoxProps {
   title: string;
   src: CSSProperties["backgroundImage"];
 }
 
-const CardItembasic = (props: CardItembasicProps) => {
+const CardItemBasic = (props: CardItemBasicProps) => {
   const { title, src, ...restProps } = props;
+
   return (
-    <CardItemBase disableBorder>
-      <Container backgroundImage={src} {...restProps}>
+    <CardItemBase disableBorder {...restProps}>
+      <Container backgroundImage={src}>
         <Typography variant="h3" className={"title"}>
           {title}
         </Typography>
@@ -52,4 +54,4 @@ const Container = styled(Box, {
   }
 );
 
-export default CardItembasic;
+export default CardItemBasic;

@@ -1,28 +1,29 @@
 import { Box, BoxProps, Typography, styled } from "@mui/material";
 
-interface CardTourPriceProps extends BoxProps {
-  reducedPrice: string;
+interface TourPriceCardProps extends BoxProps {
+  reduced_price: string;
   price: string;
 }
 
-const CardTourPrice = (props: CardTourPriceProps) => {
-  const { reducedPrice, price, ...restprops } = props;
+const TourPriceCard = (props: TourPriceCardProps) => {
+  const { reduced_price, price, ...restprops } = props;
 
   return (
-    <Container reducedPrice={reducedPrice} {...restprops}>
+    <Container reduced_price={reduced_price} {...restprops}>
       <Typography variant="caption" className="no-reduced-price">
         {price}
       </Typography>
+
       <Typography variant="caption" className="reduced-price">
-        {reducedPrice}
+        {reduced_price}
       </Typography>
     </Container>
   );
 };
 
 const Container = styled(Box, {
-  shouldForwardProp: (propName) => propName !== "reducedPrice",
-})<{ reducedPrice: string }>(({ reducedPrice, theme }) => {
+  shouldForwardProp: (propName) => propName !== "reduced_price",
+})<{ reduced_price: string }>(({ reduced_price, theme }) => {
   return {
     padding: "3px 10px 2px 10px",
     backgroundColor: "#FF4A52",
@@ -30,11 +31,11 @@ const Container = styled(Box, {
     width: "fit-content",
 
     ["& .no-reduced-price"]: {
-      fontSize: reducedPrice ? "12px" : "15px",
-      fontWeight: reducedPrice ? 400 : 700,
-      opacity: reducedPrice ? "0.6" : 1,
+      fontSize: reduced_price ? "12px" : "15px",
+      fontWeight: reduced_price ? 400 : 700,
+      opacity: reduced_price ? "0.6" : 1,
       marginRight: 5,
-      textDecoration: reducedPrice ? "line-through" : "",
+      textDecoration: reduced_price ? "line-through" : "",
     },
 
     ["& .reduced-price"]: {
@@ -44,4 +45,4 @@ const Container = styled(Box, {
   };
 });
 
-export default CardTourPrice;
+export default TourPriceCard;

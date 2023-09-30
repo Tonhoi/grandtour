@@ -11,14 +11,14 @@ $box-shadow: 0 5px 40px rgba(0, 0, 0, 0.18);
   max-width: 240px;
 }
 
-.title {
+.nav-title {
   font-size: 13px;
   font-weight: 700;
 }
 
 // styles
 
-.header-nav {
+.nav {
   &-list {
     display: flex;
     align-items: center;
@@ -124,7 +124,7 @@ $box-shadow: 0 5px 40px rgba(0, 0, 0, 0.18);
   }
 }
 
-.header-nav-ul {
+.nav-ul {
   position: absolute;
   top: 100%;
   list-style: none;

@@ -1,11 +1,11 @@
-const CartIcon = ({ className = "", width = "16", height = "16" }) => {
+import SVGIconBase, { SvgIconProps } from "./SVGIconBase";
+
+const CartIcon = (props: SvgIconProps) => {
   return (
-    <svg
+    <SVGIconBase
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      width={width}
-      height={height}
       viewBox="0 0 512 512"
+      {...props}
     >
       <circle
         cx="176"
@@ -43,7 +43,7 @@ const CartIcon = ({ className = "", width = "16", height = "16" }) => {
         strokeLinejoin="round"
         strokeWidth="32"
       />
-    </svg>
+    </SVGIconBase>
   );
 };
 

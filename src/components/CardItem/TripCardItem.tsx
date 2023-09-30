@@ -1,44 +1,48 @@
-import { Box, Stack, Typography, styled } from "@mui/material";
-import React from "react";
-import CardItemBase from "./CardItemBase";
-import { Image } from "@/components";
-import CardStar from "./CardStar";
-import ClockIcon from "../Icons/ClockIcon";
+import { Box, BoxProps, Stack, Typography, styled } from "@mui/material";
 import { ImageProps } from "next/image";
-import CardTourPrice from "./CardTourPrice";
 
-interface TripCardItemProps {
+import {
+  Image,
+  CardItemBase,
+  StarCard,
+  ClockIcon,
+  TourPriceCard,
+} from "@/components";
+
+interface TripCardItemProps extends BoxProps {
   src: ImageProps["src"];
   title: string;
   description: string;
-  countViewer: string;
+  count_viewer: string;
   time: string;
-  isSale?: boolean;
+  is_sale?: boolean;
   price: string;
-  reducedPrice: string;
+  reduced_price: string;
 }
 
 const TripCardItem = (props: TripCardItemProps) => {
   const {
     time,
-    countViewer,
+    count_viewer,
     description,
     title,
     src,
-    isSale = false,
+    is_sale = false,
     price,
-    reducedPrice,
+    reduced_price,
+    ...restProps
   } = props;
 
   return (
-    <CardItemBase disableBoxShadow overflow={"unset !important"}>
+    <CardItemBase disableBoxShadow overflow={"unset !important"} {...restProps}>
       <Container>
         <Box className={"image-wrapper"}>
           <Image src={src} className={"img"} />
-          <CardTourPrice
+
+          <TourPriceCard
             price={price}
-            reducedPrice={reducedPrice}
-            className="price-wrapper"
+            reduced_price={reduced_price}
+            className="card-price"
           />
         </Box>
 
@@ -52,29 +56,28 @@ const TripCardItem = (props: TripCardItemProps) => {
           </Typography>
 
           <Stack className={"card-footer"}>
-            <Box className={"card-left"}>
-              <CardStar />
-              <Typography variant="caption">{countViewer}</Typography>
+            <Box className={"card-footer-left"}>
+              <StarCard count={5} count_active={4} />
+
+              <Typography variant="caption">{count_viewer}</Typography>
             </Box>
 
-            <Box className={"card-right"}>
-              {/* icon */}
-              <Box className={"icon-wrapper"}>
-                <ClockIcon className="clock-icon" />
-              </Box>
+            <Box className={"card-footer-right"}>
+              <ClockIcon className="clock-icon" />
 
               <Typography variant={"caption"} fontWeight={"700"}>
                 {time}
               </Typography>
             </Box>
           </Stack>
-        </Box>
 
-        {isSale && (
-          <Typography variant="caption" className="sale">
+          <Typography
+            variant="caption"
+            className={`card-sale ${is_sale ? "active" : ""}`}
+          >
             Sale
           </Typography>
-        )}
+        </Box>
       </Container>
     </CardItemBase>
   );
@@ -89,62 +92,68 @@ const Container = styled(Box)(({ theme }) => {
       ["& .img"]: {
         objectFit: "cover",
       },
+
+      ["& .card-price"]: {
+        position: "absolute",
+        bottom: 20,
+        left: 0,
+      },
     },
 
-    ["& .card-content"]: {
-      padding: "15px",
-      ["& .card-title"]: {
+    ["& .card"]: {
+      ["&-content"]: {
+        padding: 15,
+      },
+
+      ["&-title"]: {
         fontSize: 20,
         fontWeight: "bold",
         lineHeight: "1.4",
       },
 
-      ["& .card-description"]: {
+      ["&-description"]: {
         fontSize: 14,
         margin: "9px 0 17px",
       },
 
-      ["& .card-footer"]: {
+      ["&-sale"]: {
+        position: "absolute",
+        top: 0,
+        right: 0,
+        transform: "translate(50%, -50%)",
+
+        display: "none",
+        padding: "10px 7px",
+        borderRadius: "50%",
+        backgroundColor: "#1EC6B6",
+        color: theme.palette.common.white,
+        fontWeight: "bold",
+
+        ["&.active"]: {
+          display: "block",
+        },
+      },
+
+      ["&-footer"]: {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
 
-        ["& .card-left"]: {
+        ["&-left"]: {
           display: "flex",
           alignItems: "center",
           flexWrap: "wrap",
           gap: 4,
         },
 
-        ["& .card-right"]: {
-          display: "flex",
-          alignItems: "center",
-
-          ["& .clock-icon"]: {
-            width: 12,
-            height: 12,
-            marginRight: 3,
-          },
+        ["& .clock-icon"]: {
+          position: "relative",
+          top: 2,
+          width: 12,
+          height: 12,
+          marginRight: 3,
         },
       },
-    },
-
-    ["& .price-wrapper"]: {
-      position: "absolute",
-      bottom: 20,
-      left: 0,
-    },
-
-    ["& .sale"]: {
-      position: "absolute",
-      top: 0,
-      right: 0,
-      transform: "translate(50%, -50%)",
-      padding: "10px 7px",
-      borderRadius: "50%",
-      backgroundColor: "#1EC6B6",
-      color: theme.palette.common.white,
-      fontWeight: "bold",
     },
   };
 });

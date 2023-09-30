@@ -19,10 +19,10 @@ const CardItemBase = (props: CardItemBaseProps) => {
 
   return (
     <Container
-      {...restProps}
       disableAnimation={disableAnimation}
       disableBorder={disableBorder}
       disableBoxShadow={disableBoxShadow}
+      {...restProps}
     >
       {children}
     </Container>
@@ -50,6 +50,11 @@ const Container = styled(Box, {
     borderRadius: 5,
     overflow: "hidden",
 
+    ["&:hover"]: {
+      top: disableAnimation ? 0 : -4,
+      boxShadow: disableAnimation ? "unset" : "0 22px 40px rgba(0,0,0,.15)",
+    },
+
     ["&:after"]: {
       display: disableBoxShadow ? "none" : "block",
       content: '""',
@@ -57,11 +62,6 @@ const Container = styled(Box, {
       inset: 0,
       backgroundImage:
         "linear-gradient(transparent 0%,transparent 60%,rgba(0,0,0,.1) 66%,rgba(0,0,0,.5) 93%,rgba(0,0,0,.49) 100%)",
-    },
-
-    ["&:hover"]: {
-      top: disableAnimation ? 0 : -4,
-      boxShadow: disableAnimation ? "unset" : "0 22px 40px rgba(0,0,0,.15)",
     },
 
     ["& .price-wrapper"]: {

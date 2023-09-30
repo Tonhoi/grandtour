@@ -1,3 +1,5 @@
+const path = require("path");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -26,6 +28,24 @@ const nextConfig = {
         pathname: "**",
       },
     ],
+  },
+
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.(mp4)$/,
+      include: path.resolve(__dirname, "/public/videos"), // Đường dẫn đến thư mục chứa các tệp MP4
+      use: [
+        {
+          loader: "file-loader",
+          options: {
+            publicPath: "/videos/", // Đường dẫn công khai cho các tệp MP4
+            outputPath: "static/videos/", // Thư mục đầu ra cho các tệp MP4 trong thư mục .next
+          },
+        },
+      ],
+    });
+
+    return config;
   },
 };
 

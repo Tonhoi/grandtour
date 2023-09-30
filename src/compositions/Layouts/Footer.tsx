@@ -20,7 +20,7 @@ const Footer = () => {
         </Stack>
       </MuiContainer>
 
-      <Stack className={"footer-bottom-wrapper"}>
+      <Stack className={"footer-bottom"}>
         <MuiContainer>
           <FooterBar />
         </MuiContainer>
@@ -52,7 +52,7 @@ const Container = styled(Box)(({ theme }) => {
       },
     },
 
-    ["& .footer-bottom-wrapper"]: {
+    ["& .footer-bottom"]: {
       position: "relative",
       padding: "30px 0 20px",
       flexDirection: "row",

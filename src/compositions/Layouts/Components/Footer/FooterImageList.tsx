@@ -1,6 +1,7 @@
+import { Box, BoxProps, Typography, styled } from "@mui/material";
+
 import { Image } from "@/components";
 import { IMAGE_LIST } from "@/constant";
-import { Box, BoxProps, Typography, styled } from "@mui/material";
 
 interface FooterImageListProps extends BoxProps {}
 
@@ -25,6 +26,7 @@ const FooterImageList = (props: FooterImageListProps) => {
 const Container = styled(Box)(() => {
   return {
     width: "100%",
+
     ["& .image-list"]: {
       display: "flex",
       flexWrap: "wrap",

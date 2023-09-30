@@ -1,12 +1,11 @@
 import { styled, Box, Grid, Container as MuiContainer } from "@mui/material";
-import ThumbnailVideo from "./Components/ThumbnailVideo";
 
+import ThumbnailVideo from "./Components/ThumbnailVideo";
 import {
-  Spacing,
   PostCardItem,
   TripCardItem,
   ReasonCardItem,
-  CardItembasic,
+  CardItemBasic,
   HeadLine,
 } from "@/components";
 import {
@@ -19,11 +18,7 @@ import {
 const Home = () => {
   return (
     <Container>
-      <Box className={"video"}>
-        <ThumbnailVideo />
-      </Box>
-
-      <Spacing spacing={3} />
+      <ThumbnailVideo />
 
       <MuiContainer>
         <HeadLine
@@ -35,7 +30,7 @@ const Home = () => {
         <Grid container spacing={4}>
           {POPULAR_DESTINATION_ITEMS.map((el, idx) => (
             <Grid item lg={3} md={3} sm={4} xs={12} key={idx}>
-              <CardItembasic src={el.src} title={el.title} />
+              <CardItemBasic src={el.src} title={el.title} />
             </Grid>
           ))}
         </Grid>
@@ -53,11 +48,11 @@ const Home = () => {
                 src={el.src}
                 title={el.title}
                 description={el.description}
-                countViewer={el.count_viewer}
+                count_viewer={el.count_viewer}
                 time={el.time}
                 price={el.price}
-                reducedPrice={el.reduce_price}
-                isSale={el.isSale}
+                reduced_price={el.reduce_price}
+                is_sale={el.is_sale}
               />
             </Grid>
           ))}
@@ -108,7 +103,7 @@ const Home = () => {
   );
 };
 
-const Container = styled(Box)(() => {
+const Container = styled(Box)(({ theme }) => {
   return {
     ["& .headline"]: {
       marginTop: 50,
@@ -124,7 +119,10 @@ const Container = styled(Box)(() => {
       backgroundPosition: "50% 50%",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
-      backgroundAttachment: "fixed",
+
+      [theme.breakpoints.up("md")]: {
+        backgroundAttachment: "fixed",
+      },
     },
   };
 });

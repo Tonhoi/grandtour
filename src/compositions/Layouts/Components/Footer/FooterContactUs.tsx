@@ -1,5 +1,6 @@
-import { CONTACTUS } from "@/constant";
 import { Box, BoxProps, Typography, styled } from "@mui/material";
+
+import { CONTACTUS } from "@/constant";
 
 interface FooterContactUsProps extends BoxProps {}
 

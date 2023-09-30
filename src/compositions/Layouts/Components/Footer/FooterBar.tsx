@@ -1,6 +1,7 @@
+import { Box, Stack, StackProps, Typography, styled } from "@mui/material";
+
 import { Link } from "@/components";
 import { MENUFOOTER } from "@/constant";
-import { Box, Stack, StackProps, Typography, styled } from "@mui/material";
 
 interface FooterBarProps extends StackProps {}
 

@@ -51,7 +51,7 @@ const Container = styled(Box)(() => {
 
     ["& .title"]: {
       fontSize: 36,
-      fontWeight: "bold",
+      fontWeight: 800,
       lineHeight: "1.3",
     },
 

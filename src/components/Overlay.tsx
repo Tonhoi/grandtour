@@ -1,5 +1,5 @@
-import { Box, BoxProps, styled } from "@mui/material";
 import { CSSProperties, ReactNode } from "react";
+import { Box, BoxProps, styled } from "@mui/material";
 
 interface OverlayProps extends BoxProps {
   children?: ReactNode;
@@ -8,6 +8,7 @@ interface OverlayProps extends BoxProps {
 
 const Overlay = (props: OverlayProps) => {
   const { children, backgroundColor, ...restProps } = props;
+
   return (
     <Container backgroundColor={backgroundColor} {...restProps}>
       {children}
@@ -24,7 +25,6 @@ const Container = styled(Box, {
       zIndex: 10,
 
       display: "none",
-
       backgroundColor: backgroundColor,
 
       "&.active": {

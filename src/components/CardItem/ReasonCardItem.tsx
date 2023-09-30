@@ -1,7 +1,7 @@
 import { Box, styled } from "@mui/material";
 import { ImageProps } from "next/image";
-import HeadLine from "../HeadLine";
-import { Image } from "@/components";
+
+import { Image, HeadLine } from "@/components";
 
 interface ReasonCardItemProps {
   src: ImageProps["src"];
@@ -11,6 +11,7 @@ interface ReasonCardItemProps {
 
 const ReasonCardItem = (props: ReasonCardItemProps) => {
   const { src, sub_title, title, ...restProps } = props;
+
   return (
     <Container {...restProps}>
       <Box className={"image-wrapper"}>
