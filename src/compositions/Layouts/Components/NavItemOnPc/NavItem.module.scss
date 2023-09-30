@@ -17,6 +17,7 @@ $box-shadow: 0 5px 40px rgba(0, 0, 0, 0.18);
     display: flex;
     align-items: center;
   }
+
   &-div {
     display: flex;
     justify-content: center;
@@ -38,14 +39,14 @@ $box-shadow: 0 5px 40px rgba(0, 0, 0, 0.18);
   }
 
   &-title {
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 13px !important;
+    font-weight: 700 !important;
   }
 }
 
 .sub-menu {
   &-link {
-    color: $black-color;
+    color: $black-color !important;
   }
 
   &-ul {
