@@ -1,7 +1,7 @@
 import { CSSProperties } from "react";
 import { Box, BoxProps, Typography, styled } from "@mui/material";
-import { CardItemBase } from "@/components";
 
+import { CardItemBase } from "@/components";
 interface CardItemBasicProps extends BoxProps {
   title: string;
   src: CSSProperties["backgroundImage"];
