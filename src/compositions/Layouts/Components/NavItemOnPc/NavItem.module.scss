@@ -78,7 +78,7 @@ $box-shadow: 0 5px 40px rgba(0, 0, 0, 0.18);
 
     &:hover,
     & a:hover {
-      color: $red-color;
+      color: $red-color !important;
       cursor: pointer;
       transition: all 0.2s linear;
     }
