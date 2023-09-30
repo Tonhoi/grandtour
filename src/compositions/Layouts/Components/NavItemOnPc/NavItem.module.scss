@@ -12,7 +12,6 @@ $box-shadow: 0 5px 40px rgba(0, 0, 0, 0.18);
 }
 
 // styles
-
 .nav {
   &-list {
     display: flex;
@@ -37,7 +36,7 @@ $box-shadow: 0 5px 40px rgba(0, 0, 0, 0.18);
     background-color: $white-color;
     box-shadow: $box-shadow;
   }
-  
+
   &-title {
     font-size: 13px;
     font-weight: 700;
