@@ -168,6 +168,7 @@ const Container = styled(Box)(({ theme }) => {
 
         [theme.breakpoints.down("md")]: {
           gridTemplateColumns: "1fr",
+          gap: 10,
         },
 
         ["& .icon"]: {
