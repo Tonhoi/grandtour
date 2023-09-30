@@ -120,7 +120,7 @@ const Container = styled(Box)(({ theme }) => {
         position: "absolute",
         top: 0,
         right: 0,
-        transform: "translate(50%, -50%)",
+        transform: "translate(30%, -50%)",
 
         display: "none",
         padding: "10px 7px",
