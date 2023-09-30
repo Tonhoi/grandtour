@@ -64,12 +64,12 @@ const Container = styled(Box, {
         "linear-gradient(transparent 0%,transparent 60%,rgba(0,0,0,.1) 66%,rgba(0,0,0,.5) 93%,rgba(0,0,0,.49) 100%)",
     },
 
-    ["& .price-wrapper"]: {
+    ["& .card-price"]: {
       transform: "scale(1)",
       transition: "all  0.2s",
     },
 
-    ["&:hover .price-wrapper"]: {
+    ["&:hover .card-price"]: {
       transform: "scale(1.1)",
     },
   };
