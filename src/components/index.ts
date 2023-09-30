@@ -25,7 +25,7 @@ export { default as Spacing } from "./Spacing";
 
 // card
 export { default as CardItemBase } from "./CardItem/CardItemBase";
-export { default as CardItemBasic } from "./CardItem/CardItemBasic";
+export { default as CardItemBasic } from "./CardItem/CardItemBasis";
 export { default as StarCard } from "./CardItem/StarCard";
 export { default as TourPriceCard } from "./CardItem/TourPriceCard";
 export { default as GalleryCardItem } from "./CardItem/GalleryCardItem";
