@@ -18,7 +18,7 @@ const SubMenuLevel1 = (props: SubMenuLevel1Props) => {
   return (
     <Box component={"li"} className={cx("sub-menu-li")}>
       <Link underline="none" href="#" className={cx("sub-menu-link")}>
-        <Typography variant={"caption"}>{data.name}</Typography>
+        <Typography variant={"caption"} className={cx("nav-title")}>{data.name}</Typography>
       </Link>
     </Box>
   );
