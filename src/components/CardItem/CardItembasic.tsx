@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 import { Box, BoxProps, Typography, styled } from "@mui/material";
-
 import { CardItemBase } from "@/components";
 
 interface CardItemBasicProps extends BoxProps {
